@@ -14,7 +14,7 @@ export default {
     },
     methods: {
         increase (id) {
-            store.commit('addProduct', {id})
+            store.commit('addProduct', id)
         }
     }
 }

@@ -4,7 +4,7 @@
         <span>{{item.count}}</span>
         <button @click="decrease(item.id)"> - </button>
     </div>
-    <div>总额： </div>
+    <div>总额： {{sum}}</div>
 </template>
 <script>
 import store from '../../../store/index'
@@ -14,15 +14,15 @@ export default {
         list: function () {
             return store.getters.cartItems
         },
-        // sum: function () {
-        //     return this.list.reduce((pre, curr) => {
-        //         return pre + curr.price * curr.count
-        //     }, 0)
-        // }
+        sum: function () {
+            return this.list.reduce((pre, curr) => {
+                return pre + curr.price * curr.count
+            }, 0)
+        }
     },
     methods: {
         decrease (id) {
-            this.$emit("deleteProduct", id)
+            store.commit("deleteProduct", id)
         }
     }
 }
