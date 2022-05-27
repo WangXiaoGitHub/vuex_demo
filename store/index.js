@@ -1,8 +1,6 @@
-// import Vue from 'vue'
 import Vuex from 'vuex'
 import {nanoid} from 'nanoid'
 
-// Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         productList: [
@@ -27,11 +25,11 @@ export default new Vuex.Store({
     },
     getters: {
         cartItems: function (state) {
-            // let products = []
-            return state.cartList.map(item1 => {
+            let cartList = state.cartList.map(item1 => {
                 let prodoct = state.productList.find(p => p.id === item1.id)
                return {...prodoct, count: item1.count}
             })
+            return cartList
         },
     },
     mutations: {
@@ -42,6 +40,15 @@ export default new Vuex.Store({
             } else {
                 state.cartList.push({id, count: 1})
             }
+        },
+        "deleteProduct": function (state, id) {
+            let product = state.cartList.find(obj => obj.id === id)
+            if (product) {
+                product.count--
+            }
+            state.cartList.reduce((pre, current) => {
+                return current.count > 0 ? [...pre, current] : [...pre]
+            }, [])
         }
     }
 })
