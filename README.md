@@ -1,3 +1,7 @@
+效果图：
+
+![image](https://github.com/WangXiaoGitHub/vuex_demo/blob/master/images/Snipaste_2022-05-27_17-06-59.png)
+
 # vuex_demo
 
 ## Project setup
