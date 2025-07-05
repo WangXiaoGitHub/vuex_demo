@@ -1,5 +1,7 @@
 # 改动A
 # 改动B
+# 改动C
+# 改动D
 效果图：
 
 ![image](https://github.com/WangXiaoGitHub/vuex_demo/blob/master/images/Snipaste_2022-05-27_17-06-59.png)
